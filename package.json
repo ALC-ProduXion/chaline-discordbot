@@ -7,6 +7,9 @@
     "dependencies": {
         "discord.js" : "v14.15.5"
     },
+    "engines": {
+    "node": "14.x"
+    },
     "scripts": {
         "start": "node index.js"
     }
