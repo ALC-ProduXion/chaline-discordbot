@@ -11,6 +11,10 @@
     "dependencies": {
         "discord.js" : "^14.15.5"
     },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALC-ProduXion/chaline-discordbot"
+    },
     "scripts": {
         "start": "node index.js"
     }
