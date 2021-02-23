@@ -1,0 +1,13 @@
+{
+    "name": "chaline",
+    "version": "1.0.0",
+    "description": "Le meilleur Bot",
+    "author" : "ALC ProduXion",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js" : "^14.15.5"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}
