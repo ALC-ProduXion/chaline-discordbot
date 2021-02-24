@@ -30,7 +30,7 @@ client.on('message', message => {
             client.commands.get(command).execute(message, args);
         } catch (error) {
             console.error(error);
-            message.reply('Une erreur s\'est produite');
+            message.reply('Meow !\nIl y a un chat dans le paté');
         }
     })
 
