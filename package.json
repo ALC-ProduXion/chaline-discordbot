@@ -1,21 +1,32 @@
+
 {
-    "name": "chaline",
-    "version": "1.0.0",
-    "description": "",
-    "author" : "ALC-ProduXion",
-    "license": "ISC",
-    "engines": {
-    "node": "14.15.5",
-    "npm": "6.14.11"
-    },
-    "dependencies": {
-        "discord.js" : "^14.15.5"
-    },
-    "repository": {
+  "name": "chaline",
+  "version": "1.0.0",
+  "description": "a discord bot",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/ALC-ProduXion/chaline-discordbot"
-    },
-    "scripts": {
-        "start": "node index.js"
-    }
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "alcproduxion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ALC-ProduXion/chaline-discordbot/issues"
+  },
+  "homepage": "https://github.com/ALC-ProduXion/chaline-discordbot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
 }
