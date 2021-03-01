@@ -1,0 +1,3 @@
+There are the normal gif, 
+You can see the first form of the commands (in majority for the moment but it will progressively be updated to the last form) : test.js
+The last form is example.js which is much easier to understand
