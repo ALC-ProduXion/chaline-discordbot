@@ -110,7 +110,7 @@ client.on('message', message => {
     }
     //---------------------------------------------------------------------------------------------------------------------TROL------------------------
     if (configreact === '1') {
-            if (message.content.startsWith('Chaline') && !message.author.bot) { message.reply('Non mais ça va pas de me réveiller comme ça là !');}
+        if (message.content.startsWith('Chaline') && !message.author.bot) { message.reply('Non mais ça va pas de me réveiller comme ça là !');}
         else if (message.content.startsWith('Vive Chaline') && !message.author.bot) { message.reply('Donne moi des croquettes au lieu de parler');}
         else if (message.content.startsWith('!tgmee6') && !message.author.bot) { message.channel.send('Oue j\'avoue femre bien ta gueule le bot !');}
         else if (message.content.includes('Chaline') && !message.author.bot) { message.channel.send('Coucou ^^');}
