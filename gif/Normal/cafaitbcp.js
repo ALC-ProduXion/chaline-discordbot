@@ -1,6 +1,6 @@
 module.exports = {
     name: "cafaitbcp", //nom de la commande
-    description: "Le grand et vénérable logiciel", //description facultative sinon ""
+    description: "ça fait beaucoup là non ?", //description facultative sinon ""
     execute(message) {
         //------------------------------------INIT
         nbgifs = 1;

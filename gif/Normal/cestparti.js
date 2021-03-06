@@ -1,6 +1,6 @@
 module.exports = {
     name: "cestparti", //nom de la commande
-    description: "Le grand et vénérable logiciel", //description facultative sinon ""
+    description: "", //description facultative sinon ""
     execute(message) {
         //------------------------------------INIT
         nbgifs = 1;

@@ -1,6 +1,6 @@
 module.exports = {
     name: "zut", //nom de la commande
-    description: "permet de tester", //description facultative sinon ""
+    description: "", //description facultative sinon ""
     execute(message) {
         //------------------------------------INIT
         nbgifs = 2;
