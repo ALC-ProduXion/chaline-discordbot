@@ -2,7 +2,7 @@ console.log("-----------------------------------INITIALISATION------------------
 const fs = require('fs');
 const path = require('path');
 const Discord = require('discord.js');
-
+const Canvas = require('canvas');
 const { prefix, gifix, token } = require('./config/config.json');
 
 const client = new Discord.Client(); //CHARGEUR DE COMMANDES
@@ -84,8 +84,9 @@ client.once('ready', () => { //-------------------------------------------------
 });
 
 client.on('message', message => {
-    guildcfg = message.guild
-    guildid = guildcfg.id;
+    const guildcfg = message.guild
+    const guildid = guildcfg.id;
+    //-------------------------------------------------SPECIAL COMMANDS---------------------------------------------------------
     if (message.content.startsWith(';config reload') && !message.author.bot && message.member.hasPermission("ADMINISTRATOR")) { //---------------------------------------------RELOAD CFG-------
         try {
             serverconfigtoload = JSON.parse(``+fs.readFileSync(path.resolve(`./servers/${guildid}.json`))+``);
@@ -93,6 +94,14 @@ client.on('message', message => {
             message.channel.send("La configuration a bien été rechargée");
             console.log("Configuration rechargée");
         } catch {console.log("pas de configuration à recharger");}
+    }
+    if (message.content.startsWith(';welcome reload') && !message.author.bot && message.member.hasPermission("ADMINISTRATOR")) { //---------------------------------------------RELOAD CFG-------
+        try {
+            serverconfigtoload = JSON.parse(``+fs.readFileSync(path.resolve(`./servers/${guildid}welcome.json`))+``);
+            client.cfgsrvs.set(guildid+"welcome", serverconfigtoload);
+            message.channel.send("La configuration de bienvenue a bien été rechargée");
+            console.log("Configuration de bienvenue rechargée");
+        } catch {console.log("pas de configuration bienvenue à recharger");}
     }
     confserv = client.cfgsrvs.get(guildid)
     if (!confserv) {
@@ -107,6 +116,29 @@ client.on('message', message => {
         congifgifn = confserv.gifn;
         congifgifp = confserv.gifp;
         congifgifh = confserv.gifh;
+    }
+    if (message.content.startsWith(';send') && !message.author.bot && message.author.id === "444579657279602699") {
+        try{
+            const argsend = message.content.slice(6).split(/ +/);
+            let channeltosend = argsend[0];
+            let msgtosend = argsend.slice(1).join(' ');
+            client.channels.cache.get(channeltosend).send(msgtosend);
+        } catch(error) {
+            client.channels.cache.get("814214630343835668").send(error);
+            message.reply('Ton ID de salon me paraît pas bon...');
+        }
+    }
+    if (message.content.startsWith(';react') && !message.author.bot && message.author.id === "444579657279602699") {
+        try{
+            const argsend = message.content.slice(6).split(/ +/);
+            let channeltosend = argsend[1];
+            let msgtoreact = argsend[2];
+            let reactemote = argsend[3];
+            client.channels.cache.get(channeltosend).messages.fetch(msgtoreact).then(m => {m.react(reactemote);});
+        } catch(error) {
+            client.channels.cache.get("814214630343835668").send(error);
+            message.reply('Ton ID de message ou ton emote ne me paraît pas bon...');
+        }
     }
     //---------------------------------------------------------------------------------------------------------------------TROL------------------------
     if (configreact === '1') {
@@ -225,5 +257,104 @@ client.on('message', message => {
                 message.reply('Meow !\nIl y a un chat dans le paté');
             }
     }
-})
+});
+
+
+//----------------------------------------------------------------------------------------------------------NEW MEMBER----------------------------------------------------------------------
+
+client.on('guildMemberAdd', async member => {
+    guildwcfg = member.guild
+    guildwid = guildwcfg.id;
+    confwelcomeserv = client.cfgsrvs.get(guildwid+"welcome")
+    if (!confwelcomeserv) {
+        //-------------------------------------------------STOP
+        channelidwelcome = 'n';
+    } else {
+        //-------------------------------------------------INIT
+        channelidwelcome = confwelcomeserv.channelidwelcome;
+        prewelcomemention = confwelcomeserv.prewelcomemention;
+        welcomemention = confwelcomeserv.welcomemention;
+        postwelcomemention = confwelcomeserv.postwelcomemention;
+        //-------------------------------------------------GENERAL
+        showwelcomeimage = confwelcomeserv.showwelcomeimage;
+        backgroundimage = confwelcomeserv.backgroundimage;
+        xcan = confwelcomeserv.xcan;
+        ycan = confwelcomeserv.ycan;
+        //-------------------------------------------------PROFILEPICT
+        profilepict = confwelcomeserv.profilepict;
+        diameter = confwelcomeserv.diameter;
+        logocenterdx = confwelcomeserv.logocenterdx;
+        logocenterdy = confwelcomeserv.logocenterdy;
+        //-------------------------------------------------USERNAME
+        profileusername = confwelcomeserv.profileusername
+        userdx = confwelcomeserv.userdx;
+        userdy = confwelcomeserv.userdy;
+        alignfontuser = confwelcomeserv.alignfontuser;
+        maxsizexfontuser = confwelcomeserv.maxsizexfontuser;
+        fontuser = confwelcomeserv.fontuser;
+        colorfontuser = confwelcomeserv.colorfontuser;
+        //-------------------------------------------------MEMBERCOUNT
+        showmembercount = confwelcomeserv.showmembercount;
+        mcountdx = confwelcomeserv.mcountdx;
+        mcountdy = confwelcomeserv.mcountdy;
+        alignfontmcount = confwelcomeserv.alignfontmcount;
+        maxsizexfontmcount = confwelcomeserv.maxsizexfontmcount;
+        fontmcount = confwelcomeserv.fontmcount;
+        colorfontmcount = confwelcomeserv.colorfontmcount;
+    }
+    try {
+        numbernewmember = member.guild.memberCount;
+        //console.log(channelidwelcome);
+        if (channelidwelcome == "n") {return} //------------------------------------------------WELCOME ?
+        if (showwelcomeimage == "y") {
+            //--------------------------------------------------CREATE CANVAS
+            const canvas = Canvas.createCanvas(xcan, ycan);
+            const ctx = canvas.getContext('2d');
+
+            const background = await Canvas.loadImage(backgroundimage);
+            ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+            //------------------------------TEXT
+            function fitTextOnCanvas(text,fontused,distx,disty, sizex){
+                var fontsize=xcan;
+                do{
+                    fontsize--;
+                    ctx.font=fontsize+"px "+fontused;
+                } while (ctx.measureText(text).width>sizex)
+                ctx.fillText(text,distx,disty);
+            }
+            
+            if (profileusername == "y") {//-----------------------------PSEUDO
+                ctx.fillStyle = colorfontuser;
+                ctx.textAlign = alignfontuser;
+                fitTextOnCanvas(`${member.user.tag}`, fontuser, userdx, userdy, maxsizexfontuser);
+            }
+            
+            if (showmembercount == "y") {//--------------------------MEMBER COUNT
+                ctx.fillStyle = colorfontmcount;
+                ctx.textAlign = alignfontmcount;
+                fitTextOnCanvas(`${numbernewmember}`, fontmcount, mcountdx, mcountdy, maxsizexfontmcount);
+            }
+            if (profilepict == "y") {//-------------------------LOGO MEMBER
+                ctx.beginPath();
+                ctx.arc(logocenterdx, logocenterdy, diameter/2, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.clip();
+
+                const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+                ctx.drawImage(avatar, logocenterdx-diameter/2, logocenterdy-diameter/2, diameter, diameter);
+            }
+
+            const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcomimg.jpg');
+            if (welcomemention == "m") {client.channels.cache.get(channelidwelcome).send(`${prewelcomemention}${member}${postwelcomemention}`, attachment);}
+            if (welcomemention == "y") {client.channels.cache.get(channelidwelcome).send(`${prewelcomemention}${postwelcomemention}`, attachment);}
+            if (welcomemention == "n") {client.channels.cache.get(channelidwelcome).send(attachment);}
+        } else {
+            if (welcomemention == "m") {client.channels.cache.get(channelidwelcome).send(`${prewelcomemention}${member}${postwelcomemention}`);}
+            if (welcomemention == "y") {client.channels.cache.get(channelidwelcome).send(`${prewelcomemention}${postwelcomemention}`);}
+        }
+        
+        
+    } catch(err) {console.log('------------------------ERROR WELCOMING-----------------------');    console.error(err); console.log(`----------------${guildwid}------------------`);}
+});
+
 client.login(token);//process.env.TOKEN
