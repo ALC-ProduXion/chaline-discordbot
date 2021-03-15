@@ -3,3 +3,4 @@ The structure of the gif commands is not definitive.
 
 UPDATE 20210301 -> add gifs commands
 UPDATE 20210306 -> add gifs + commandlist(normal/plus/hard)
+UPDATE 20210315 -> add gifs commands
