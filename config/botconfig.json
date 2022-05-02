@@ -1,0 +1,19 @@
+{
+    "chalineBotsID": [
+        "816727136286146570",
+        "813744876214550538",
+        "927916809267576843"
+    ],
+    "serverID": "814097749603254303",
+    "suggestionChannel": "861296498276040734",
+    "errorChannel": "862272460430245888",
+    "mpChannel": "841940895502958642",
+    "logChannel": "864195653441159179",
+    "statusChannel": "814478520914280478",
+    "gifUseChannel": "814239948759629914",
+    "normalGifListChannel": "861308858244530196",
+    "plusGifListChannel": "861307940887724062",
+    "hardGifListChannel": "861308337866145802",
+    "gifAdminLogChannel": "861268662291922954",
+    "gifServerLogChannel": "862021850851049492"
+}
