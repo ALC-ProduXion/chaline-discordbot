@@ -1,0 +1,43 @@
+Type d'erreur - Précision - Numéro d'erreur (si plusieurs bugs possible dans une partie non suffisament précisée) - Définie (1/0, par exemple si cela vient d'une commande du répartiteur de commande ce n'est pas défini) - Fichier concerné
+
+\nErreur : \`CMD-CLASSIC-1-0-MAIN\`
+
+CMD-ERR-1-0-MAIN
+
+MSG-MP-0-0-MPCMD
+
+\nErreur : \`CMDMP-GIF-N-0-MAIN\`
+\nErreur : \`CMDMP-GIF-P-0-MAIN\`
+\nErreur : \`CMDMP-GIF-H-0-MAIN\`
+
+\nErreur : \`CMD-MYGIF-CRWREL-1-MAIN\`
+\nErreur : \`CMD-MYGIF-CRREEL-1-MAIN\`
+\nErreur : \`CMD-MYGIF-EXREEL-1-MAIN\`
+\nErreur : \`CMD-MYGIF-EXWREL-1-MAIN\`
+\nErreur : \`CMD-MYGIF-VEWREL-1-MAIN\`
+
+\nErreur : \`CMD-NEWGIF-CRWREL-1-MAIN\`
+\nErreur : \`CMD-NEWGIF-CRREEL-1-MAIN\`
+\nErreur : \`CMD-NEWGIF-EXREEL-1-MAIN\`
+\nErreur : \`CMD-NEWGIF-EXWREL-1-MAIN\`
+\nErreur : \`CMD-NEWGIF-VEWREL-1-MAIN\`
+\nErreur : \`CMD-NEWGIF-0-0-MAIN\`
+
+\nErreur : \`CMD-DELGIF-CRWREL-1-MAIN\`
+\nErreur : \`CMD-DELGIF-CRREEL-1-MAIN\`
+\nErreur : \`CMD-DELGIF-EXREEL-1-MAIN\`
+\nErreur : \`CMD-DELGIF-EXWREL-1-MAIN\`
+\nErreur : \`CMD-DELGIF-VEWREL-1-MAIN\`
+\nErreur : \`CMD-DELGIF-0-0-MAIN\`
+
+\nErreur : \`CMD-GDEV-0-0-G\`
+
+\nErreur : \`CMD-PGIF-1-0-MAIN\`
+
+\nErreur : \`CMD-GIF-S-0-MAIN\`
+\nErreur : \`CMD-GIF-N-0-MAIN\`
+\nErreur : \`CMD-GIF-P-0-MAIN\`
+\nErreur : \`CMD-GIF-H-0-MAIN\`
+
+\nErreur : \`CMD-CLASSIC-1-0-MAIN\`
+

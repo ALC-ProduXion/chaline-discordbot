@@ -1,32 +1,43 @@
-
 {
-  "name": "chaline",
-  "version": "1.0.0",
-  "description": "a discord bot",
-  "main": "index.js",
-  "engines": {
-    "node": "14.x",
-    "npm": "*"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ALC-ProduXion/chaline-discordbot"
-  },
-  "keywords": [
-    "heroku",
-    "discord.js"
-  ],
-  "author": "alcproduxion",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ALC-ProduXion/chaline-discordbot/issues"
-  },
-  "homepage": "https://github.com/ALC-ProduXion/chaline-discordbot#readme",
-  "dependencies": {
-    "discord.js": "^12.5.1"
-  }
+    "name": "chaline",
+    "version": "1.2.0",
+    "description": "a discord cat",
+    "main": "index.js",
+    "engines": {
+        "node": "14.x",
+        "npm": "*"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ALC-ProduXion/chaline-discordbot"
+    },
+    "keywords": [
+        "heroku",
+        "discord.js"
+    ],
+    "author": "alcproduxion",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ALC-ProduXion/chaline-discordbot/issues"
+    },
+    "homepage": "https://github.com/ALC-ProduXion/chaline-discordbot#readme",
+    "dependencies": {
+        "@discordjs/opus": "^0.5.3",
+        "canvas": "^2.9.1",
+        "chart.js": "^3.0.2",
+        "discord-buttons": "^4.0.0",
+        "discord-tts": "^1.2.0",
+        "discord-tts-fr": "^1.0.3",
+        "discord-tts-spanish": "^2.2.3",
+        "discord.js": "<=12.5.3",
+        "opusscript": "0.0.8",
+        "path": "^0.12.7",
+        "quickchart-js": "^1.0.7",
+        "repositories": "^0.5.2",
+        "tslib": "^2.2.0"
+    }
 }
