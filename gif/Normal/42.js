@@ -5,6 +5,6 @@ module.exports = {
         //------------------------------------INIT
         nbgifs = 1;
         valeurgif = Math.floor(Math.random() * nbgifs) + 1 ;
-        if (valeurgif === 1) {message.channel.send('https://cdn.discordapp.com/attachments/705417681335091211/749356756953464975/godgif-lite.gif');}
+        if (valeurgif === 1) {message.channel.send('https://cdn.discordapp.com/attachments/705417681335091211/749356756953464975/godgif-lite.gif');} //https://cdn.discordapp.com/attachments/705417681335091211/749356756953464975/godgif-lite.gif
     }
 }
