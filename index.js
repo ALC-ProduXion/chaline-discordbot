@@ -47,6 +47,13 @@ afk.initafk();
 init.servCfgLoading();
 
 
+// Prevents bot from crash
+process.on('uncaughtException', function (err) {
+    console.error(err);
+    logger.all("Un chat m'a coupé la route, mais je suis indemne");
+});
+
+
 // when Chaline logged in Discord
 client.once('ready', () => {
     init.activityMessage();
