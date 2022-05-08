@@ -17,7 +17,7 @@ module.exports = {
     general: function (message) {
         // Check if the message is safe for community
         suspiciousWords = checkBadwords(message);
-        if (suspiciousWords.length > 0) {
+        if (suspiciousWords.length > 0 && !message.author.bot) {
             logger.all(`${message.author.tag} a dit ${suspiciousWords.toString()} dans ${message.channel.name}`);
         }
     },
